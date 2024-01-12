@@ -486,8 +486,8 @@
     </Exec>
 
     <!-- CI systems may checkout the specific commit, rather than the branch, so we need to fallback -->
-    <Exec Command='$(GitExe) name-rev --name-only $(GitNameRevOptions) HEAD'
-			  Condition=" '$(GitBranch)' == '' "
+    <Exec Command='$(GitExe) name-rev --name-only HEAD'
+			  Condition=" '$(GitBranch)' == '' OR '$(GitBranch)' == 'HEAD' "
 			  EchoOff='true'
 			  StandardErrorImportance="low"
 			  StandardOutputImportance="low"
